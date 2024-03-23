@@ -9,7 +9,7 @@ setup(
     long_description='PyLao is Lao Libary',
     long_description_content_type='text/markdown',
     url='https://github.com/arrogroup/pylao',
-    packages=find_packages(),
+    packages=['pylao'],
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Developers',
