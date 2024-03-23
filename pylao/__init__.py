@@ -1,7 +1,7 @@
 data = """
 |==============================|
 |.. PyLao Libary by arrogroup .|
-|.. Version 0.9 ...............|
+|.. Version 0.1.5 .............|
 |.. Made by arrogroup .........|
 |==============================|
 """
@@ -21,6 +21,7 @@ class nlp:
         # ສະລະ
         sn = ['ເ', 'ແ', 'ໄ', 'ໃ']
         sl = ['ະ', 'າ', 'ິ', 'ີ', 'ຶ', 'ື', 'ຸ', 'ູ', 'ໍ', 'ຳ'] # a a2  e e2 ue ue2 u u2 or arm
+        sy = ['ັ','ົ']
 
         # ວັນນະຍຸດ
         vn = ['່', '້', '໊', '໋'] # ແອັກ ໂທ ຕີ ຈັດຕະວາ
@@ -40,9 +41,20 @@ class nlp:
         while x < text_len:
             tps = ""
 
-            if (lao_text_arry[x] and lao_text_arry[x+1] in sn[0]):
+            if (x < text_len and lao_text_arry[x] and lao_text_arry[x+1] in sn[0]):
                 tps += lao_text_arry[x]+lao_text_arry[x+1]
                 x += 2
+                if (x < text_len and lao_text_arry[x] in pk and lao_text_arry[x+1] in pt):
+                    tps += lao_text_arry[x]
+                    x += 1
+                    if (x < text_len and lao_text_arry in sy):
+                        tps += lao_text_arry[x]
+                        x += 1
+                        if (x < text_len and lao_text_arry[x] in vn):
+                            tps += lao_text_arry[x]
+                            x += 1
+                            if (x+1 < text_len and lao_text_arry[x]):
+                                pass
 
             text.append(tps)
 
